@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doller buy & sell💰©</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Doller buy & sell💰©</h1>
+    <p>Working Hours: 8AM – 11PM</p>
+    <div id="admin-status" class="status offline">Admin: Offline</div>
+  </header>
+
+  <main>
+    <section id="buy-section">
+      <h2>Buy Dollar (129 BDT/USD)</h2>
+      <form id="buy-form">
+        <label>Amount ($): <input type="number" min="1" id="buy-amount" required></label>
+        <p>Total (BDT): <span id="buy-total">0</span></p>
+        <label>Wallet Type:
+          <select id="buy-wallet">
+            <option>Binance</option>
+            <option>Bybit</option>
+            <option>Payeer</option>
+          </select>
+        </label>
+        <label>UID / Wallet Address: <input type="text" required></label>
+        <label>Transaction ID: <input type="text" required></label>
+        <label>Screenshot Upload: <input type="file" required></label>
+        <p>Send BDT to bKash: <strong>01970225105</strong> (Personal)</p>
+        <button type="submit">Place Buy Order</button>
+      </form>
+    </section>
+
+    <section id="sell-section">
+      <h2>Sell Dollar</h2>
+      <form id="sell-form">
+        <label>Amount ($): <input type="number" min="1" id="sell-amount" required></label>
+        <label>Wallet Type:
+          <select id="sell-wallet">
+            <option>Binance (124 BDT/USD)</option>
+            <option>Bybit (124 BDT/USD)</option>
+            <option>Payeer (121 BDT/USD)</option>
+          </select>
+        </label>
+        <p>Total (BDT after fee): <span id="sell-total">0</span></p>
+        <label>bKash/Nagad Number: <input type="text" required></label>
+        <label>Transaction ID: <input type="text" required></label>
+        <label>Screenshot Upload: <input type="file" required></label>
+        <button type="submit">Place Sell Order</button>
+      </form>
+    </section>
+
+    <section id="coin-sell-section">
+      <h2>Coin Sell – Tiktopfree Coin</h2>
+      <form id="coin-sell-form">
+        <label>Coin Amount (Min 500): <input type="number" id="coin-amount" min="500" required></label>
+        <p>Total BDT (after 5 BDT fee): <span id="coin-total">0</span></p>
+        <label>Payeer ID: <input type="text" required></label>
+        <label>Screenshot Upload: <input type="file" required></label>
+        <button type="submit">Place Coin Sell Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Reserve Balance: <span id="reserve">Updating...</span></p>
+    <p><a href="https://t.me/dollerbuysellbdlmt" target="_blank">Join Telegram Group</a></p>
+    <div id="live-chat">Live Chat Support</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
