@@ -1,14 +1,14 @@
-// login.js
-import { supabase } from './supabase.js';
+document.addEventListener("DOMContentLoaded", function () {
+    const loginBtn = document.getElementById("login-btn");
 
-const loginButton = document.getElementById('login-button');
+    loginBtn.addEventListener("click", async function () {
+        const { data, error } = await supabaseClient.auth.signInWithOAuth({
+            provider: "google",
+        });
 
-loginButton.addEventListener('click', async () => {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-  });
-
-  if (error) {
-    alert('Login failed: ' + error.message);
-  }
+        if (error) {
+            alert("Login Failed: " + error.message);
+            console.error(error);
+        }
+    });
 });
