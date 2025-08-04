@@ -10,24 +10,24 @@
   <header>
     <h1>Doller buy & sell💰©</h1>
     <p>Working Hours: 8AM–11PM</p>
-    <p>Admin Status: <span id="admin-status" class="online">● Online</span></p>
+    <p>Admin Status: <span id="admin-status" class="online">● Admin Active</span></p>
   </header>
 
   <main>
-    <!-- BUY SECTION -->
+    <!-- Buy Section -->
     <section class="card">
       <h2>Buy Dollar (129 BDT/USD)</h2>
-      <form id="buy-form">
+      <form id="buy-form" onsubmit="submitBuy(event)">
         <label>Dollar Amount ($):</label>
-        <input type="number" id="buy-amount" min="1" required />
-        
+        <input type="number" id="buyAmount" min="1" required oninput="updateBuyBDT()" />
+
         <label>Wallet Type:</label>
         <select required>
           <option value="Binance">Binance</option>
           <option value="Bybit">Bybit</option>
           <option value="Payeer">Payeer</option>
         </select>
-        
+
         <label>Wallet Address (UID / Payeer ID):</label>
         <input type="text" required />
 
@@ -39,28 +39,25 @@
         <label>Transaction ID:</label>
         <input type="text" required />
 
-        <p>📌 Total BDT: <span id="buy-total">0</span>৳</p>
-
+        <p><strong>Total Payment (BDT):</strong> <span id="buyBDT">0</span></p>
         <button type="submit">Submit Buy Order</button>
       </form>
       <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
     </section>
 
-    <!-- SELL SECTION -->
+    <!-- Sell Section -->
     <section class="card">
       <h2>Sell Dollar</h2>
-      <form id="sell-form">
+      <form id="sell-form" onsubmit="submitSell(event)">
         <label>Dollar Amount ($):</label>
-        <input type="number" id="sell-amount" min="1" required />
+        <input type="number" id="sellAmount" min="1" required oninput="updateSellBDT()" />
 
         <label>Wallet Type:</label>
-        <select id="sell-wallet" required>
+        <select id="sellWallet" required onchange="updateSellBDT()">
           <option value="Binance">Binance (124)</option>
           <option value="Bybit">Bybit (124)</option>
           <option value="Payeer">Payeer (121)</option>
         </select>
-
-        <p>Note: 5 BDT transaction fee will be deducted.</p>
 
         <label>Sender Screenshot:</label>
         <input type="file" required />
@@ -74,22 +71,20 @@
         <label>Your Number:</label>
         <input type="text" required />
 
-        <p>📌 You Will Receive: <span id="sell-total">0</span>৳</p>
-
+        <p><strong>Total You Will Get (BDT):</strong> <span id="sellBDT">0</span></p>
         <button type="submit">Submit Sell Order</button>
       </form>
       <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
     </section>
 
-    <!-- COIN SELL -->
+    <!-- Coin Sell Section -->
     <section class="card">
       <h2>Coin Sell (Tiktopfree Coin)</h2>
-      <form id="coin-form">
-        <label>Coin Amount:</label>
-        <input type="number" id="coin-amount" min="500" required />
+      <form id="coin-form" onsubmit="submitCoin(event)">
+        <label>Coin Amount (min 500):</label>
+        <input type="number" id="coinAmount" min="500" required oninput="updateCoinBDT()" />
 
         <p>➡️ Rate: 500 Coin = 170 BDT | 5TK fee applicable</p>
-
         <label>Your Payeer Wallet: P1098742287</label>
 
         <label>Your Payment Wallet (bKash/Nagad):</label>
@@ -104,16 +99,15 @@
         <label>Screenshot:</label>
         <input type="file" required />
 
-        <p>📌 You Will Receive: <span id="coin-total">0</span>৳</p>
-
+        <p><strong>Total You Will Get:</strong> <span id="coinBDT">0</span></p>
         <button type="submit">Submit Coin Sell</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>💳 Reserve Balance: <span id="reserve-amount">1500 USD</span></p>
-    <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram</a></p>
+    <p>💳 Reserve Balance: <span id="reserve-amount">$1500</span></p>
+    <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram Group</a></p>
   </footer>
 
   <script src="script.js"></script>
