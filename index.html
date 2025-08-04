@@ -2,36 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Doller buy & sell💰©</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Doller buy & sell💰©</h1>
-  <div class="status">
-    <span class="active-dot"></span>
-    <strong id="status-text">Admin Active</strong>
-  </div>
-  <div class="rate">
-    <strong>Today Rate:</strong><br>
-    Buy: 129৳ | Sell (Payeer): 121৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=170৳
-  </div>
+  <header>
+    <h1>Doller buy & sell💰©</h1>
+    <p>Working Hours: 8AM–11PM</p>
+    <p>Admin Status: <span id="admin-status" class="online">● Online</span></p>
+  </header>
 
   <main>
-    <section class="buy-sell-section">
-      <button onclick="openBuy()">Buy Dollar</button>
-      <button onclick="openSell()">Sell Dollar</button>
-      <button onclick="openCoinSell()">Coin Sell</button>
+    <!-- BUY SECTION -->
+    <section class="card">
+      <h2>Buy Dollar (129 BDT/USD)</h2>
+      <form id="buy-form">
+        <label>Dollar Amount ($):</label>
+        <input type="number" id="buy-amount" min="1" required />
+        
+        <label>Wallet Type:</label>
+        <select required>
+          <option value="Binance">Binance</option>
+          <option value="Bybit">Bybit</option>
+          <option value="Payeer">Payeer</option>
+        </select>
+        
+        <label>Wallet Address (UID / Payeer ID):</label>
+        <input type="text" required />
+
+        <label>Transaction Screenshot:</label>
+        <input type="file" required />
+
+        <label>Payment Sent To (bKash personal): 01970225105</label>
+
+        <label>Transaction ID:</label>
+        <input type="text" required />
+
+        <button type="submit">Submit Buy Order</button>
+      </form>
+      <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
     </section>
 
-    <section id="form-section"></section>
+    <!-- SELL SECTION -->
+    <section class="card">
+      <h2>Sell Dollar</h2>
+      <form id="sell-form">
+        <label>Dollar Amount ($):</label>
+        <input type="number" id="sell-amount" min="1" required />
+
+        <label>Wallet Type:</label>
+        <select id="sell-wallet" required>
+          <option value="Binance">Binance (124)</option>
+          <option value="Bybit">Bybit (124)</option>
+          <option value="Payeer">Payeer (121)</option>
+        </select>
+
+        <label>Sender Screenshot:</label>
+        <input type="file" required />
+
+        <label>Your Payment Wallet (bKash/Nagad):</label>
+        <select required>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
+        </select>
+
+        <label>Your Number:</label>
+        <input type="text" required />
+
+        <button type="submit">Submit Sell Order</button>
+      </form>
+      <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
+    </section>
+
+    <!-- COIN SELL -->
+    <section class="card">
+      <h2>Coin Sell (Tiktopfree Coin)</h2>
+      <form id="coin-form">
+        <label>Coin Amount:</label>
+        <input type="number" id="coin-amount" min="500" required />
+
+        <p>➡️ Rate: 500 Coin = 170 BDT | 5TK fee applicable</p>
+
+        <label>Your Payeer Wallet: P1098742287</label>
+
+        <label>Your Payment Wallet (bKash/Nagad):</label>
+        <select required>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
+        </select>
+
+        <label>Your Number:</label>
+        <input type="text" required />
+
+        <label>Screenshot:</label>
+        <input type="file" required />
+
+        <button type="submit">Submit Coin Sell</button>
+      </form>
+    </section>
   </main>
 
   <footer>
-    <p>Working Hours: 8AM–11PM</p>
-    <p>Payment to: bKash Personal 01970225105</p>
-    <p>Reserve Balance: $<span id="reserve-amount">500</span></p>
-    <p><a href="https://t.me/dollerbuysellbdlmt" target="_blank">📢 Telegram Group</a></p>
+    <p>💳 Reserve Balance: <span id="reserve-amount">1500 USD</span></p>
+    <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram</a></p>
   </footer>
 
   <script src="script.js"></script>
