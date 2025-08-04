@@ -1,14 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const loginBtn = document.getElementById("login-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-btn");
 
-    loginBtn.addEventListener("click", async function () {
-        const { data, error } = await supabaseClient.auth.signInWithOAuth({
-            provider: "google",
-        });
-
-        if (error) {
-            alert("Login Failed: " + error.message);
-            console.error(error);
-        }
+  loginBtn.addEventListener("click", async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
     });
+
+    if (error) {
+      alert("Login failed: " + error.message);
+      console.error(error);
+    }
+  });
 });
