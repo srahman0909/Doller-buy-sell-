@@ -1,140 +1,60 @@
-/* Base Styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
-  color: #222;
+  background: #f2f2f2;
+  color: #333;
 }
-
 header {
-  background: #e1ffe6;
-  padding: 15px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-header .status {
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.active-dot {
-  height: 10px;
-  width: 10px;
-  background-color: green;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-main {
-  padding: 20px;
-  text-align: center;
-}
-
-/* Buttons */
-button {
-  padding: 10px 20px;
-  margin: 8px;
-  border: none;
-  background: #0077cc;
+  background: #007BFF;
   color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
+  text-align: center;
+  padding: 10px 0;
 }
-
-button:hover {
-  background: #005fa3;
-}
-
-/* Forms */
-form {
+.card {
   background: white;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: left;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-
-form label {
-  display: block;
-  margin: 10px 0 5px;
+form {
+  display: flex;
+  flex-direction: column;
+}
+form label, form input, form select {
+  margin-bottom: 10px;
+}
+form input, form select {
+  padding: 8px;
+  font-size: 1em;
+}
+button {
+  background: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
 }
-
-form input,
-form select,
-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form input[type="file"] {
-  border: none;
-}
-
-form button {
-  width: 100%;
-  margin-top: 10px;
-  background: #28a745;
-}
-
-form button:hover {
+button:hover {
   background: #218838;
 }
-
-/* Footer */
 footer {
-  background: #003366;
-  color: white;
-  padding: 15px;
+  background: #222;
+  color: #fff;
   text-align: center;
-  margin-top: 30px;
-  font-size: 14px;
+  padding: 10px 0;
 }
-
-footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  font-weight: bold;
+.online {
+  color: green;
 }
-
-footer a:hover {
-  text-decoration: underline;
+.offline {
+  color: red;
 }
-
-/* Reserve, Working Hours, Rate box */
-.today-rate {
-  background: #ccf5d1;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-#form-section {
-  margin-top: 20px;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-  form {
-    padding: 15px;
-  }
-
-  header {
-    font-size: 18px;
-  }
-
-  button {
-    width: 90%;
+@media (max-width: 600px) {
+  .card {
+    margin: 10px;
+    padding: 10px;
   }
 }
