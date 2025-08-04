@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Doller buy & sell💰©</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f1f1f1;
+      padding: 50px;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login with Gmail</h2>
+    <button onclick="loginWithGoogle()">Sign in with Google</button>
+    <p id="login-status"></p>
+  </div>
+
+  <script type="module">
+    import { supabase } from './supabase.js';
+
+    async function loginWithGoogle() {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+      });
+      if (error) {
+        document.getElementById('login-status').innerText = "❌ Login Failed!";
+      } else {
+        document.getElementById('login-status').innerText = "✅ Redirecting...";
+      }
+    }
+
+    // Check if already logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        window.location.href = "dashboard.html";
+      }
+    });
+  </script>
+</body>
+</html>
