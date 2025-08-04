@@ -39,6 +39,8 @@
         <label>Transaction ID:</label>
         <input type="text" required />
 
+        <p>📌 Total BDT: <span id="buy-total">0</span>৳</p>
+
         <button type="submit">Submit Buy Order</button>
       </form>
       <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
@@ -58,6 +60,8 @@
           <option value="Payeer">Payeer (121)</option>
         </select>
 
+        <p>Note: 5 BDT transaction fee will be deducted.</p>
+
         <label>Sender Screenshot:</label>
         <input type="file" required />
 
@@ -69,6 +73,8 @@
 
         <label>Your Number:</label>
         <input type="text" required />
+
+        <p>📌 You Will Receive: <span id="sell-total">0</span>৳</p>
 
         <button type="submit">Submit Sell Order</button>
       </form>
@@ -97,6 +103,8 @@
 
         <label>Screenshot:</label>
         <input type="file" required />
+
+        <p>📌 You Will Receive: <span id="coin-total">0</span>৳</p>
 
         <button type="submit">Submit Coin Sell</button>
       </form>
