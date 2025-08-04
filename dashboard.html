@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard - Doller Buy & Sell💰</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #eef1f5;
+      padding: 40px;
+    }
+    .dashboard-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    img {
+      border-radius: 50%;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-box">
+    <h2>Welcome, <span id="user-name">User</span> 👋</h2>
+    <p>Email: <span id="user-email">loading...</span></p>
+    <img id="user-pic" src="" width="100" height="100" alt="User Photo" />
+    <br />
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script type="module">
+    import { supabase } from './supabase.js';
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        window.location.href = "login.html";
+      } else {
+        const user = session.user;
+        document.getElementById('user-name').innerText = user.user_metadata.full_name || "User";
+        document.getElementById('user-email').innerText = user.email;
+        document.getElementById('user-pic').src = user.user_metadata.avatar_url || "";
+      }
+    });
+
+    async function logout() {
+      const { error } = await supabase.auth.signOut();
+      if (!error) {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>
