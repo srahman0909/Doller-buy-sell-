@@ -10,22 +10,23 @@
   <header>
     <h1>Doller buy & sell💰©</h1>
     <p>Working Hours: 8AM–11PM</p>
-    <p>Admin Status: <span id="admin-status" class="online">● Admin Active</span></p>
+    <p><strong>💡 Admin Status:</strong> <span id="admin-status" class="online">● Admin Active</span></p>
+    <p><strong>📊 Today Rate:</strong> Buy: 129৳ | Sell (Payeer): 121৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=170৳</p>
   </header>
 
   <main>
     <!-- Buy Section -->
     <section class="card">
-      <h2>Buy Dollar (129 BDT/USD)</h2>
-      <form id="buy-form" onsubmit="submitBuy(event)">
+      <h2>💵 Buy Dollar</h2>
+      <form onsubmit="submitBuy(event)">
         <label>Dollar Amount ($):</label>
-        <input type="number" id="buyAmount" min="1" required oninput="updateBuyBDT()" />
+        <input type="number" id="buyAmount" min="1" required oninput="updateBuyBDT()"/>
 
         <label>Wallet Type:</label>
         <select required>
-          <option value="Binance">Binance</option>
-          <option value="Bybit">Bybit</option>
-          <option value="Payeer">Payeer</option>
+          <option>Binance</option>
+          <option>Bybit</option>
+          <option>Payeer</option>
         </select>
 
         <label>Wallet Address (UID / Payeer ID):</label>
@@ -34,79 +35,82 @@
         <label>Transaction Screenshot:</label>
         <input type="file" required />
 
-        <label>Payment Sent To (bKash personal): 01970225105</label>
+        <p><strong>Total Payment (BDT):</strong> <span id="buyBDT">0</span>৳</p>
+        <p>Send money to: <strong>bKash Personal 01970225105</strong></p>
 
         <label>Transaction ID:</label>
         <input type="text" required />
 
-        <p><strong>Total Payment (BDT):</strong> <span id="buyBDT">0</span></p>
         <button type="submit">Submit Buy Order</button>
       </form>
-      <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
+      <p>📨 Feedback: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram Group</a></p>
     </section>
 
     <!-- Sell Section -->
     <section class="card">
-      <h2>Sell Dollar</h2>
-      <form id="sell-form" onsubmit="submitSell(event)">
+      <h2>💸 Sell Dollar</h2>
+      <form onsubmit="submitSell(event)">
         <label>Dollar Amount ($):</label>
-        <input type="number" id="sellAmount" min="1" required oninput="updateSellBDT()" />
+        <input type="number" id="sellAmount" min="1" required oninput="updateSellBDT()"/>
 
-        <label>Wallet Type:</label>
-        <select id="sellWallet" required onchange="updateSellBDT()">
-          <option value="Binance">Binance (124)</option>
-          <option value="Bybit">Bybit (124)</option>
-          <option value="Payeer">Payeer (121)</option>
+        <label>Select Wallet:</label>
+        <select id="sellWallet" required onchange="updateSellBDT(); updateSellAddress();">
+          <option value="">Select Wallet</option>
+          <option value="Binance">Binance (124৳)</option>
+          <option value="Bybit">Bybit (124৳)</option>
+          <option value="Payeer">Payeer (121৳)</option>
         </select>
+
+        <p><strong>Send Dollar To:</strong> <span id="walletAddress">—</span></p>
 
         <label>Sender Screenshot:</label>
         <input type="file" required />
 
-        <label>Your Payment Wallet (bKash/Nagad):</label>
+        <label>Payment Method (bKash/Nagad):</label>
         <select required>
-          <option value="bKash">bKash</option>
-          <option value="Nagad">Nagad</option>
+          <option>bKash</option>
+          <option>Nagad</option>
         </select>
 
         <label>Your Number:</label>
         <input type="text" required />
 
-        <p><strong>Total You Will Get (BDT):</strong> <span id="sellBDT">0</span></p>
+        <p><strong>Total You Will Get (BDT):</strong> <span id="sellBDT">0</span>৳ (5৳ fee deducted)</p>
         <button type="submit">Submit Sell Order</button>
       </form>
-      <p>🔗 Feedback group: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram</a></p>
+      <p>📨 Feedback: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram Group</a></p>
     </section>
 
     <!-- Coin Sell Section -->
     <section class="card">
-      <h2>Coin Sell (Tiktopfree Coin)</h2>
-      <form id="coin-form" onsubmit="submitCoin(event)">
-        <label>Coin Amount (min 500):</label>
-        <input type="number" id="coinAmount" min="500" required oninput="updateCoinBDT()" />
+      <h2>🪙 Coin Sell (Tiktopfree)</h2>
+      <form onsubmit="submitCoin(event)">
+        <label>Coin Amount (Min 500):</label>
+        <input type="number" id="coinAmount" min="500" required oninput="updateCoinBDT()"/>
 
-        <p>➡️ Rate: 500 Coin = 170 BDT | 5TK fee applicable</p>
-        <label>Your Payeer Wallet: P1098742287</label>
+        <p><strong>Rate:</strong> 500 Coins = 170৳ | 5৳ fee will be deducted</p>
+        <p><strong>Send Coin To:</strong> Payeer: P1098742287</p>
 
-        <label>Your Payment Wallet (bKash/Nagad):</label>
+        <label>Payment Method (bKash/Nagad):</label>
         <select required>
-          <option value="bKash">bKash</option>
-          <option value="Nagad">Nagad</option>
+          <option>bKash</option>
+          <option>Nagad</option>
         </select>
 
         <label>Your Number:</label>
         <input type="text" required />
 
-        <label>Screenshot:</label>
+        <label>Transaction Screenshot:</label>
         <input type="file" required />
 
-        <p><strong>Total You Will Get:</strong> <span id="coinBDT">0</span></p>
+        <p><strong>Total You Will Get:</strong> <span id="coinBDT">0</span>৳</p>
         <button type="submit">Submit Coin Sell</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>💳 Reserve Balance: <span id="reserve-amount">$1500</span></p>
+    <p>💰 Reserve Balance: <span id="reserve-amount">500 USD</span></p>
     <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram Group</a></p>
   </footer>
 
