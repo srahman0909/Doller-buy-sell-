@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doller buy & sell💰©</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Doller buy & sell💰©</h1>
-
   <div class="status">
-    <span class="dot" id="admin-status"></span>
-    <strong>Admin Active</strong> 💲💱 Today Rate: Buy 129৳ | Sell 121/124৳ | Coin: 500=170৳
+    <span class="active-dot"></span>
+    <strong id="status-text">Admin Active</strong>
+  </div>
+  <div class="rate">
+    <strong>Today Rate:</strong><br>
+    Buy: 129৳ | Sell (Payeer): 121৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=170৳
   </div>
 
   <main>
@@ -21,59 +24,14 @@
       <button onclick="openCoinSell()">Coin Sell</button>
     </section>
 
-    <!-- Buy Form -->
-    <section id="buy-section" style="display:none">
-      <h2>Buy Dollar</h2>
-      <p>Rate: 1$ = 129৳</p>
-      <form>
-        <input type="number" placeholder="Amount ($)" required />
-        <input type="text" placeholder="Wallet (Binance/Bybit/Payeer)" required />
-        <input type="text" placeholder="Transaction ID" required />
-        <input type="text" placeholder="Your Wallet Address (UID/ID)" required />
-        <input type="file" required />
-        <button type="submit">Submit Buy Order</button>
-      </form>
-    </section>
-
-    <!-- Sell Form -->
-    <section id="sell-section" style="display:none">
-      <h2>Sell Dollar</h2>
-      <p>Rate: Payeer 121৳ | Binance/Bybit 124৳</p>
-      <form>
-        <input type="number" placeholder="Amount ($)" required />
-        <select required>
-          <option value="Binance">Binance</option>
-          <option value="Bybit">Bybit</option>
-          <option value="Payeer">Payeer</option>
-        </select>
-        <input type="file" required />
-        <input type="text" placeholder="bKash/Nagad Number" required />
-        <select required>
-          <option value="bKash">bKash</option>
-          <option value="Nagad">Nagad</option>
-        </select>
-        <button type="submit">Submit Sell Order</button>
-      </form>
-    </section>
-
-    <!-- Coin Sell Form -->
-    <section id="coin-section" style="display:none">
-      <h2>Coin Sell (Tiktopfree)</h2>
-      <p>500 Coin = 170৳ (5৳ fee deducted)</p>
-      <form>
-        <input type="number" placeholder="Coin Amount (min 500)" required />
-        <input type="text" placeholder="Your Payeer Wallet ID" required />
-        <input type="file" required />
-        <button type="submit">Submit Coin Sell</button>
-      </form>
-    </section>
+    <section id="form-section"></section>
   </main>
 
   <footer>
     <p>Working Hours: 8AM–11PM</p>
     <p>Payment to: bKash Personal 01970225105</p>
-    <p>Reserve Balance: $500</p>
-    <p>📢 <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram Group</a></p>
+    <p>Reserve Balance: $<span id="reserve-amount">500</span></p>
+    <p><a href="https://t.me/dollerbuysellbdlmt" target="_blank">📢 Telegram Group</a></p>
   </footer>
 
   <script src="script.js"></script>
