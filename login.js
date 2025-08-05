@@ -1,11 +1,18 @@
-import { supabase } from './supabase.js';
+// login.js
 
 document.getElementById("login-btn").addEventListener("click", async () => {
   const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
+    provider: "google",
   });
 
   if (error) {
-    console.error("Login failed:", error.message);
+    alert("Login failed: " + error.message);
+  }
+});
+
+// After login, this runs when user returns from Google
+supabase.auth.getSession().then(({ data: { session } }) => {
+  if (session) {
+    window.location.href = "dashboard.html"; // Redirect after successful login
   }
 });
