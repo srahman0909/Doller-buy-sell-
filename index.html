@@ -11,7 +11,7 @@
     <h1>Doller buy & sell💰©</h1>
     <p>Working Hours: 8AM–11PM</p>
     <p><strong>💡 Admin Status:</strong> <span id="admin-status" class="online">● Admin Active</span></p>
-    <p><strong>📊 Today Rate:</strong> Buy: 129৳ | Sell (Payeer): 121৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=170৳</p>
+    <p><strong>📊 Today Rate:</strong> Buy: 129৳ | Sell (Payeer): 120৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=165৳</p>
   </header>
 
   <main>
@@ -23,23 +23,23 @@
         <input type="number" id="buyAmount" min="1" required oninput="updateBuyBDT()"/>
 
         <label>Wallet Type:</label>
-        <select required>
+        <select id="buyWallet" required>
           <option>Binance</option>
           <option>Bybit</option>
           <option>Payeer</option>
         </select>
 
         <label>Wallet Address (UID / Payeer ID):</label>
-        <input type="text" required />
+        <input type="text" id="buyAddress" required />
 
         <label>Transaction Screenshot:</label>
-        <input type="file" required />
+        <input type="file" id="buyScreenshot" required />
 
         <p><strong>Total Payment (BDT):</strong> <span id="buyBDT">0</span>৳</p>
         <p>Send money to: <strong>bKash Personal 01970225105</strong></p>
 
         <label>Transaction ID:</label>
-        <input type="text" required />
+        <input type="text" id="buyTxnId" required />
 
         <button type="submit">Submit Buy Order</button>
       </form>
@@ -58,22 +58,22 @@
           <option value="">Select Wallet</option>
           <option value="Binance">Binance (124৳)</option>
           <option value="Bybit">Bybit (124৳)</option>
-          <option value="Payeer">Payeer (121৳)</option>
+          <option value="Payeer">Payeer (120৳)</option>
         </select>
 
         <p><strong>Send Dollar To:</strong> <span id="walletAddress">—</span></p>
 
         <label>Sender Screenshot:</label>
-        <input type="file" required />
+        <input type="file" id="sellScreenshot" required />
 
         <label>Payment Method (bKash/Nagad):</label>
-        <select required>
+        <select id="sellMethod" required>
           <option>bKash</option>
           <option>Nagad</option>
         </select>
 
         <label>Your Number:</label>
-        <input type="text" required />
+        <input type="text" id="sellNumber" required />
 
         <p><strong>Total You Will Get (BDT):</strong> <span id="sellBDT">0</span>৳ (5৳ fee deducted)</p>
         <button type="submit">Submit Sell Order</button>
@@ -88,20 +88,20 @@
         <label>Coin Amount (Min 500):</label>
         <input type="number" id="coinAmount" min="500" required oninput="updateCoinBDT()"/>
 
-        <p><strong>Rate:</strong> 500 Coins = 170৳ | 5৳ fee will be deducted</p>
+        <p><strong>Rate:</strong> 500 Coins = 165৳ | 5৳ fee will be deducted</p>
         <p><strong>Send Coin To:</strong> Payeer: P1098742287</p>
 
         <label>Payment Method (bKash/Nagad):</label>
-        <select required>
+        <select id="coinMethod" required>
           <option>bKash</option>
           <option>Nagad</option>
         </select>
 
         <label>Your Number:</label>
-        <input type="text" required />
+        <input type="text" id="coinNumber" required />
 
         <label>Transaction Screenshot:</label>
-        <input type="file" required />
+        <input type="file" id="coinScreenshot" required />
 
         <p><strong>Total You Will Get:</strong> <span id="coinBDT">0</span>৳</p>
         <button type="submit">Submit Coin Sell</button>
@@ -110,10 +110,10 @@
   </main>
 
   <footer>
-    <p>💰 Reserve Balance: <span id="reserve-amount">500 USD</span></p>
+    <p>💰 Reserve Balance: <span id="reserve-amount">10 USD</span></p>
     <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram Group</a></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
