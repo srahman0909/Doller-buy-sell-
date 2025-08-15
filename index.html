@@ -1,119 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Doller buy & sell💰©</title>
+  <title>Dollar Buy & Sell 💰</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Doller buy & sell💰©</h1>
-    <p>Working Hours: 8AM–11PM</p>
-    <p><strong>💡 Admin Status:</strong> <span id="admin-status" class="online">● Admin Active</span></p>
-    <p><strong>📊 Today Rate:</strong> Buy: 129৳ | Sell (Payeer): 120৳ | Sell (Binance/Bybit): 124৳ | Coin: 500=165৳</p>
+    <h1>Dollar Buy & Sell 💰</h1>
+    <p>সময়: 8AM–11PM</p>
+    <p><strong>অ্যাডমিন:</strong> <span class="online">● Online</span></p>
+    <p><strong>রেট:</strong> Buy 129৳ | Sell (Payeer) 120৳ | Sell (Binance/Bybit) 124৳ | Coin 500=165৳</p>
   </header>
 
   <main>
-    <!-- Buy Section -->
+    <!-- BUY -->
     <section class="card">
-      <h2>💵 Buy Dollar</h2>
-      <form onsubmit="submitBuy(event)">
-        <label>Dollar Amount ($):</label>
-        <input type="number" id="buyAmount" min="1" required oninput="updateBuyBDT()"/>
+      <h2>💵 ডলার কিনুন (Buy)</h2>
+      <form id="buy-form">
+        <label>ডলার পরিমাণ ($)</label>
+        <input type="number" id="buy-amount" min="1" required />
 
-        <label>Wallet Type:</label>
-        <select id="buyWallet" required>
-          <option>Binance</option>
-          <option>Bybit</option>
-          <option>Payeer</option>
+        <label>ওয়ালেট টাইপ</label>
+        <select id="buy-wallet" required>
+          <option value="Binance">Binance</option>
+          <option value="Bybit">Bybit</option>
+          <option value="Payeer">Payeer</option>
         </select>
 
-        <label>Wallet Address (UID / Payeer ID):</label>
-        <input type="text" id="buyAddress" required />
+        <label>আপনার ওয়ালেট UID / Payeer ID</label>
+        <input type="text" id="buy-wallet-address" required />
 
-        <label>Transaction Screenshot:</label>
-        <input type="file" id="buyScreenshot" required />
+        <label>লেনদেনের স্ক্রিনশট</label>
+        <input type="file" id="buy-file" accept="image/*" required />
 
-        <p><strong>Total Payment (BDT):</strong> <span id="buyBDT">0</span>৳</p>
+        <p><strong>মোট দিতে হবে:</strong> <span id="buy-bdt">0</span> ৳</p>
+
         <p>Send money to: <strong>bKash Personal 01970225105</strong></p>
 
-        <label>Transaction ID:</label>
-        <input type="text" id="buyTxnId" required />
+        <label>বিকাশ ট্রানজেকশন আইডি</label>
+        <input type="text" id="buy-txn" required />
 
         <button type="submit">Submit Buy Order</button>
       </form>
-      <p>📨 Feedback: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram Group</a></p>
     </section>
 
-    <!-- Sell Section -->
+    <!-- SELL -->
     <section class="card">
-      <h2>💸 Sell Dollar</h2>
-      <form onsubmit="submitSell(event)">
-        <label>Dollar Amount ($):</label>
-        <input type="number" id="sellAmount" min="1" required oninput="updateSellBDT()"/>
+      <h2>💸 ডলার সেল করুন (Sell)</h2>
+      <form id="sell-form">
+        <label>ডলার পরিমাণ ($)</label>
+        <input type="number" id="sell-amount" min="1" required />
 
-        <label>Select Wallet:</label>
-        <select id="sellWallet" required onchange="updateSellBDT(); updateSellAddress();">
+        <label>ওয়ালেট নির্বাচন</label>
+        <select id="sell-wallet" required>
           <option value="">Select Wallet</option>
           <option value="Binance">Binance (124৳)</option>
           <option value="Bybit">Bybit (124৳)</option>
           <option value="Payeer">Payeer (120৳)</option>
         </select>
 
-        <p><strong>Send Dollar To:</strong> <span id="walletAddress">—</span></p>
+        <p><strong>ডলার পাঠাবেন এই ঠিকানায়:</strong> <span id="sell-dest">—</span></p>
 
-        <label>Sender Screenshot:</label>
-        <input type="file" id="sellScreenshot" required />
-
-        <label>Payment Method (bKash/Nagad):</label>
-        <select id="sellMethod" required>
-          <option>bKash</option>
-          <option>Nagad</option>
+        <label>আপনার পেমেন্ট (bKash/Nagad)</label>
+        <select id="sell-pay-method" required>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
         </select>
 
-        <label>Your Number:</label>
-        <input type="text" id="sellNumber" required />
+        <label>আপনার নাম্বার</label>
+        <input type="text" id="sell-number" required />
 
-        <p><strong>Total You Will Get (BDT):</strong> <span id="sellBDT">0</span>৳ (5৳ fee deducted)</p>
+        <label>সেন্ডার স্ক্রিনশট</label>
+        <input type="file" id="sell-file" accept="image/*" required />
+
+        <p><strong>আপনি পাবেন (ফি ৫৳ বাদ):</strong> <span id="sell-bdt">0</span> ৳</p>
+
         <button type="submit">Submit Sell Order</button>
       </form>
-      <p>📨 Feedback: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Telegram Group</a></p>
     </section>
 
-    <!-- Coin Sell Section -->
+    <!-- COIN SELL -->
     <section class="card">
       <h2>🪙 Coin Sell (Tiktopfree)</h2>
-      <form onsubmit="submitCoin(event)">
-        <label>Coin Amount (Min 500):</label>
-        <input type="number" id="coinAmount" min="500" required oninput="updateCoinBDT()"/>
+      <form id="coin-form">
+        <label>কয়েন পরিমাণ (নূন্যতম 500)</label>
+        <input type="number" id="coin-amount" min="500" required />
 
-        <p><strong>Rate:</strong> 500 Coins = 165৳ | 5৳ fee will be deducted</p>
-        <p><strong>Send Coin To:</strong> Payeer: P1098742287</p>
+        <p><strong>রেট:</strong> 500 Coin = 170৳ | <strong>ফি:</strong> ৫৳</p>
+        <p><strong>কয়েন পাঠান (Payeer):</strong> P1098742287</p>
 
-        <label>Payment Method (bKash/Nagad):</label>
-        <select id="coinMethod" required>
-          <option>bKash</option>
-          <option>Nagad</option>
+        <label>আপনার পেমেন্ট (bKash/Nagad)</label>
+        <select id="coin-pay-method" required>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
         </select>
 
-        <label>Your Number:</label>
-        <input type="text" id="coinNumber" required />
+        <label>আপনার নাম্বার</label>
+        <input type="text" id="coin-number" required />
 
-        <label>Transaction Screenshot:</label>
-        <input type="file" id="coinScreenshot" required />
+        <label>স্ক্রিনশট</label>
+        <input type="file" id="coin-file" accept="image/*" required />
 
-        <p><strong>Total You Will Get:</strong> <span id="coinBDT">0</span>৳</p>
+        <p><strong>আপনি পাবেন:</strong> <span id="coin-bdt">0</span> ৳</p>
+
         <button type="submit">Submit Coin Sell</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>💰 Reserve Balance: <span id="reserve-amount">10 USD</span></p>
-    <p>📞 Contact: <a href="https://t.me/dollerbuysellbdlmt">Telegram Group</a></p>
+    <p>💰 রিজার্ভ: <span id="reserve-amount">500 USD</span></p>
+    <p>📞 Telegram: <a href="https://t.me/dollerbuysellbdlmt" target="_blank">Join</a></p>
   </footer>
 
-  <script type="module" src="script.js"></script>
+  <!-- Supabase CDN + Config + App Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
